@@ -1,9 +1,17 @@
 <script lang="ts">
-import { defineComponent } from '@vue/composition-api'
+import { defineComponent, onMounted } from '@vue/composition-api'
+import ListModel from '@/models/list'
+
+const listModel = new ListModel()
 
 export default defineComponent({
   setup() {
-    console.log('success')
+    onMounted(async () => {
+      const fileData = await listModel.getCourseFields()
+      const courseData = await listModel.getCourses('all')
+
+      console.log(fileData, courseData)
+    })
   },
 })
 </script>
