@@ -1,23 +1,22 @@
 <script lang="ts">
-import { defineComponent, onMounted } from '@vue/composition-api'
-import IndexModel from '@/models/index'
-
-const indexModel = new IndexModel()
+import PageHeader from '@/components/Header/index.vue'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
   name: 'IndexPage',
 
-  setup() {
-    onMounted(async () => {
-      const data = await indexModel.getCourseDatas()
-      console.log(data)
-    })
+  components: {
+    PageHeader,
   },
+
+  setup() {},
 })
 </script>
 
 <template>
-  <div class="IndexPage">index</div>
+  <div class="container">
+    <page-header :displayBackIcon="false" :displayListIcon="true" />
+  </div>
 </template>
 
 <style lang="scss" scoped>

@@ -1,21 +1,26 @@
 <script lang="ts">
-import { defineComponent, onMounted } from '@vue/composition-api'
-import ListModel from '@/models/list'
-
-const listModel = new ListModel()
+import PageHeader from '@/components/Header/index.vue'
+import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-  setup() {
-    onMounted(async () => {
-      const fileData = await listModel.getCourseFields()
-      const courseData = await listModel.getCourses('all')
+  name: 'ListPage',
 
-      console.log(fileData, courseData)
-    })
+  components: {
+    PageHeader,
   },
+
+  setup() {},
 })
 </script>
 
 <template>
-  <div class="ListPage">list</div>
+  <div class="container">
+    <page-header :displayBackIcon="true" :displayListIcon="false" />
+  </div>
 </template>
+
+<style lang="scss" scoped>
+div {
+  color: red;
+}
+</style>

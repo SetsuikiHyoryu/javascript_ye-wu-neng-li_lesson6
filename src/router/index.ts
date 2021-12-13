@@ -1,6 +1,5 @@
 // View
 import IndexPage from '@/views/Index.vue'
-import ListPage from '@/views/List.vue'
 
 // Dependencies
 import Vue from 'vue'
