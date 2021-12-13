@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import { useRouter } from '@/hooks/router'
+import { useRouter } from '@/hooks'
 
 export default defineComponent({
   name: 'HeaderBackIcon',

@@ -6,7 +6,13 @@ const screenWitdh = document.documentElement.clientWidth
 document.documentElement.style.fontSize =
   (screenWitdh > 500 ? 100 : screenWitdh / 3.75) + 'px'
 
-window.addEventListener('load', () => FastClick.attach(document.body), false)
+window.addEventListener(
+  'load',
+
+  () => (FastClick as any).attach(document.body),
+
+  false
+)
 
 document.documentElement.addEventListener(
   'touchmove',
