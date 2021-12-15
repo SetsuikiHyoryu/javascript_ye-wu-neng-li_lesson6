@@ -1,5 +1,7 @@
 <script lang="ts">
 import IndexSwiper from './IndexSwiper/index.vue'
+import MainTitle from './MainTitle/index.vue'
+import RecomCourseList from './RecomCourseList/index.vue'
 import {
   defineComponent,
   onMounted,
@@ -14,7 +16,7 @@ const indexModel = new IndexModel()
 
 export default defineComponent({
   name: 'IndexScrollWrapper',
-  components: { IndexSwiper },
+  components: { IndexSwiper, MainTitle, RecomCourseList },
 
   setup() {
     const wrapper = ref<HTMLElement>()
@@ -61,6 +63,15 @@ export default defineComponent({
   <div class="scroll-wrapper" ref="wrapper">
     <div class="scroll-content">
       <index-swiper :swiperData="swiperData" />
+      <main-title :data="{ field_name: '推薦課程', field: 'all' }" />
+      <recom-course-list :recomCourseData="recomCourseData" />
+
+      <div v-if="fieldData.length > 0 && courseData.length">
+        <main-title :data="fieldData[0]" />
+        <main-title :data="fieldData[1]" />
+        <main-title :data="fieldData[2]" />
+        <main-title :data="fieldData[3]" />
+      </div>
     </div>
   </div>
 </template>
